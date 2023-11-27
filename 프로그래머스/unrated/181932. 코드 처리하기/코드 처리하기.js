@@ -1,6 +1,6 @@
-let mode = 0;
-let ret = "";
 function solution(code) {
+	let mode = 0;
+	let ret = "";
     [...code].forEach((v, idx) => {
         if (v === '1') {
             mode = +(!mode);
