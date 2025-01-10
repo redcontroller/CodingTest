@@ -1,12 +1,13 @@
+function toSecond (time) {
+    const [min, sec] = time.split(":").map(Number);
+    return min*60 + sec;
+}
+
 function solution(video_len, pos, op_start, op_end, commands) {
-    const [posMin, posSec] = pos.split(":").map(Number);
-    const [opsMin, opsSec] = op_start.split(":").map(Number);
-    const [opeMin, opeSec] = op_end.split(":").map(Number);
-    let [lenMin, lenSec] = video_len.split(":").map(Number);
-    let posTime = posMin*60 + posSec;
-    const opsTime = opsMin*60 + opsSec;
-    const opeTime = opeMin*60 + opeSec;
-    const videoTime = lenMin*60 + lenSec;
+    let posTime = toSecond(pos);
+    const opsTime = toSecond(op_start);
+    const opeTime = toSecond(op_end);
+    const videoTime = toSecond(video_len);
     
     for (const command of commands) {
         if (opsTime <=  posTime && posTime <= opeTime) {
