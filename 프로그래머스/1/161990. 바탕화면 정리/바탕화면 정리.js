@@ -2,7 +2,7 @@ function solution(wallpaper) {
   let [minX, minY, maxX, maxY] = [Infinity, Infinity, -Infinity, -Infinity];
 
   wallpaper.forEach((cols, row) => {
-    cols.split('').forEach((char, col) => {
+    [...cols].forEach((char, col) => {
       if (char === '#') {
         minX = minX > row ? row : minX;
         minY = minY > col ? col : minY;
